@@ -122,4 +122,30 @@ print(result)
 # 水平拼接
 result = np.hstack((v1, v2))
 print(result)
+# 深度拼接
+result = np.dstack((v1, v2))
+print(result)
 
+# c. 拆分
+v3 = [[0, 1, 2, 3, 4, 5],
+      [6, 7, 8, 9, 10, 11],
+      [12, 13, 14, 15, 16, 17],
+      [18, 19, 20, 21, 22, 23]]
+
+#垂直拆分
+result = np.split(np.array(v3), 2, axis=0)
+print(result)
+result = np.vsplit(np.array(v3), 2)
+print(result)
+# # 水平拆分
+result = np.split(np.array(v3), 2, axis=1)
+print(result)
+result = np.hsplit(np.array(v3), 2)
+print(result)
+# 深度拆分 最低三维
+result = np.dsplit(np.dstack((v1, v2)), 2)
+print('dsplit:\n', result)
+
+x = np.arange(12.0)
+result = np.split(x, [3, 5, 6, 10])
+print(result)
