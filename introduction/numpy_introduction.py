@@ -111,20 +111,41 @@ print(stus_score * 0.5)
 w = [[0.4], [0.6]]
 print(np.dot(stus_score, w))
 
+# a.1 转置
+print(stus_score.T)
+
+# a.2 逆矩阵 np.invert()
+print(np.invert(stus_score))
+
+
+
 # b. 拼接
 v1 = [[0, 1, 2, 3, 4, 5],
       [6, 7, 8, 9, 10, 11]]
 v2 = [[12, 13, 14, 15, 16, 17],
       [18, 19, 20, 21, 22, 23]]
-# 垂直拼接
+# b.1 垂直拼接   不能用于一维数据
 result = np.vstack((v1, v2))
 print(result)
-# 水平拼接
+# b.1 水平拼接
 result = np.hstack((v1, v2))
 print(result)
-# 深度拼接
+# b.1 深度拼接
 result = np.dstack((v1, v2))
 print(result)
+
+# b.2 对应 pandas中的concat 默认向下  axis=0/1 垂直/水平
+np.concatenate()
+
+# b.3 前两类是缩写,
+np.c_([stus_score, stus_score])
+np.r_([stus_score, stus_score])
+np.column_stack([stus_score, stus_score])
+np.row_stack([stus_score, stus_score])
+
+# b.4 append 注意轴的设定, 不设定轴所有的元素组成一个list
+np.append(stus_score, stus_score, axis=0)
+np.append(stus_score, stus_score, axis=1)
 
 # c. 拆分
 v3 = [[0, 1, 2, 3, 4, 5],
